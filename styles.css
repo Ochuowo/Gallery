@@ -1,0 +1,345 @@
+/* Resetting default margins and paddings */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hamburger .line {
+    width: 100%;
+    height: 4px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Rotate lines to form X */
+.hamburger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 4px);
+}
+
+.hamburger.active .line:nth-child(2) {
+    transform: rotate(-45deg) translate(5px, -4px);
+}
+
+.hamburger.active .line:nth-child(3) {
+    opacity: 0;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    width: 250px;
+    padding-top: 35px;
+    background-color: #a5a5a5;
+    color: #fff;
+    height: 100vh;
+    position: fixed;
+    left: -250px; /* Hidden initially */
+    top: 0;
+    transition: left 0.3s ease-in-out;
+    z-index: 999;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.menu {
+    list-style: none;
+    padding: 20px 0;
+    margin: 0;
+}
+
+#homeButton {
+    margin-left: 15px;
+}
+
+.nav-item {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block;
+}
+
+.nav-link:hover {
+    background-color: #444;
+}
+
+.dropdown {
+    display: none;
+    padding-left: 20px;
+}
+
+.nav-item:hover .dropdown {
+    display: block;
+}
+
+/* Gallery styling */
+.gallery {
+    margin-left: 250px;
+    padding: 20px;
+    flex: 1;
+}
+
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.photo-card {
+    width: 200px;              /* Fixed width for uniformity */
+    height: 300px;             /* Fixed height for uniformity */
+    display: flex;
+    flex-direction: column;    /* Stacks the image and info vertically */
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ddd;    /* Optional: Border around each card */
+    border-radius: 8px;        /* Smooth corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden;          /* Ensures content doesn't spill outside the card */
+    margin: 10px;
+    background-color: #fff;    /* Optional: Background color for the card */
+}
+
+.photo-card img {
+    width: 100%;               /* Ensures image spans the full card width */
+    height: auto;              /* Maintains aspect ratio */
+    max-height: 150px;         /* Restricts the height */
+    object-fit: cover;         /* Ensures uniform appearance */
+    border-radius: 5px;        /* Optional: Smooth image corners */
+}
+
+.photo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.photos img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-info {
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    width: 100%;
+}
+
+.photo-info span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.photo-info span:last-child {
+    margin-bottom: 0;
+}
+
+.photo-card:hover img {
+    filter: brightness(0.9); /* Slight dim effect on hover */
+}
+
+.svg-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 20px;
+}
+
+.svg-image {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* Ensures a clean layout */
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#search-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+    padding-left: 50px;
+}
+
+#search-input {
+    width: 80%;
+    max-width: 500px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#search-result-count {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+#switchBoard { 
+    float: left; 
+    margin-top: 15px; 
+    margin-right: 20px; 
+} 
+
+#switchBoard button {
+    display: block; 
+    width: 150px; 
+    margin-bottom: 5px; 
+    background-color: rgba(74, 117, 100, 0.064);
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+} 
+
+.form-container { 
+    display: none;
+    float: left;
+    width: 150px;
+}
+
+.clearfix::after { 
+    content: ""; 
+    clear: both; 
+    display: table; 
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #f4f4f4;
+    border: none;
+    border-right: 1px solid #ddd;
+}
+
+.tab-button[data-active="true"] {
+    background-color: #ffffff;
+    font-weight: bold;
+}
+
+.tab-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tab-section {
+    display: none;
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.item-actions button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Pagination */
+.pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.page-button {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    background-color: #f4f4f4;
+}
+
+.page-button[data-active="true"] {
+    background-color: #ffffff;
+    font-weight: bold;
+}
+
+.item-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.item-file,
+.item-name,
+.item-location,
+.item-count,
+.item-actions {
+    margin-right: 10px;
+}
+
+.item-location select,
+.item-count button {
+    margin-left: 5px;
+}
+
+.count-display {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.pagination button[data-active="true"] {
+    font-weight: bold;
+    text-decoration: underline;
+}
+

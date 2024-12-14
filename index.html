@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Path Finder</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+    <!-- Hamburger Menu -->
+    <div class="hamburger" id="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>    
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <ul class="menu">
+            <!-- Home button -->
+            <li class="nav-item">
+                <a id="homeButton" href="#gallery"> Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Oils</a>
+                <ul class="dropdown">
+                    <li><a href="#" class="dropdown-link">Engine Oils</a></li>
+                    <li><a href="#" class="dropdown-link">GearBox Oils</a></li>
+                    <li><a href="#" class="dropdown-link">Atf</a></li>
+                    <li><a href="#" class="dropdown-link">Brake Oils</a></li>
+                    <li><a href="#" class="dropdown-link">Diff Oils</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Filters</a>
+                <ul class="dropdown">
+                    <li><a href="#" class="dropdown-link">Air Filter</a></li>
+                    <li><a href="#" class="dropdown-link">Fuel Filter</a></li>
+                    <li><a href="#" class="dropdown-link">Oil Filter</a></li>
+                    <li><a href="#" class="dropdown-link">Diesel Filter</a></li>
+                    <li><a href="#" class="dropdown-link">Petrol Filter</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Bulbs</a>
+                <ul class="dropdown">
+                    <li><a href="#" class="dropdown-link">Head lights</a></li>
+                    <li><a href="#" class="dropdown-link">Brake Lights</a></li>
+                    <li><a href="#" class="dropdown-link">Dashboard Lights</a></li>
+                    <li><a href="#" class="dropdown-link">Indoor Lights</a></li>
+                    <li><a href="#" class="dropdown-link">Outdoor Lights</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Batteries</a>
+                <ul class="dropdown">
+                    <li><a href="#" class="dropdown-link">Car Batts</a></li>
+                    <li><a href="#" class="dropdown-link">Lorry Batts</a></li>
+                    <li><a href="#" class="dropdown-link">Nduthii Batts</a></li>
+                    <li><a href="#" class="dropdown-link">Matatu Batts</a></li>
+                    <li><a href="#" class="dropdown-link">MiniBus Batts</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Belts</a>
+                <ul class="dropdown">
+                    <li><a href="#" class="dropdown-link">Radiator Belt</a></li>
+                    <li><a href="#" class="dropdown-link">WaterPump Belt</a></li>
+                    <li><a href="#" class="dropdown-link">Alternator Belt</a></li>
+                    <li><a href="#" class="dropdown-link">Air-Con Belt</a></li>
+                    <li><a href="#" class="dropdown-link">Engine Belt</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>   
+
+    <!-- Path Finder Section -->
+    <section id="gallery" class="gallery">
+        <div id="search-bar" style = "display: none">
+            <input 
+                type="text" 
+                id="search-input" 
+                placeholder="Search for images..."
+                oninput="performSearch()"
+            />
+            <p id="search-result-count"></p>
+        </div> 
+        <h1 id="gallery-title">Spares Shop</h1>
+        <div class="svg-grid">
+            <!-- Images will be dynamically loaded here -->
+            <div class="svg-image">
+             <img src="https://icons.iconarchive.com/icons/uiconstock/shopping-cart/72/Shoppingcart-03-arrow-down-icon.png" width="72" height="72" alt="Sales Report" data-form-id="sales-report-form">
+                <div class="photo-info">
+                    <span><strong>Sales Report:</strong> Record sales for the day, week or month</span>
+                </div>
+            </div>            
+            <div class="svg-image">
+                <img src="https://icons.iconarchive.com/icons/custom-icon-design/flatastic-7/72/Product-documentation-icon.png" width="72" height="72" alt="Stock Report" data-form-id="stock-report-form">
+                <div class="photo-info">
+                    <span><strong>Stock Report:</strong> Monitor stock movements</span>
+                </div>
+            </div>
+            <div class="svg-image">
+                <img src="https://icons.iconarchive.com/icons/iconshock/super-vista-business/72/receptionist-icon.png" width="72" height="72" alt="Customer Relations">
+                <div class="photo-info">
+                    <span><strong>Customer Relations:</strong> Build rapport with clients</span>
+                </div>
+            </div>
+            <div class="svg-image">
+                <img src="https://icons.iconarchive.com/icons/mymovingreviews/3d-movers/72/truck-brown-icon.png" width="72" height="72" alt="Distis">
+                <div class="photo-info">
+                    <span><strong>Distributors Report:</strong> Refresh orders automatically</span>
+                </div>
+            </div>
+            <div class="svg-image">
+                <img src="https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/72/Line-chart-icon.png" width="72" height="72" alt="Payment Report">
+                <div class="photo-info">
+                    <span><strong>Payment Report:</strong> Track creditors & debtors in one place</span>
+                </div>
+            </div>                                          
+        </div>
+        <br />
+        <div id="switchBoard" style="margin-top: 15px;">
+            <button id="show-data-button" style="background-color: rgba(74, 117, 100, 0.064); cursor: pointer;">
+                All Products
+            </button>
+            <button id="add-data-button" style="background-color: rgba(74, 117, 100, 0.064); cursor: pointer;">
+                New Product
+            </button>
+            <button id="button3" style="background-color: rgba(74, 117, 100, 0.064); cursor: pointer;">
+                Edit Product
+            </button>
+        </div>
+
+        <div id="data-table"></div>
+
+        <div id="add-data-form" class="form-container">
+            <form>
+                <h2>New Product</h2>
+                <label for="category">Category:</label>
+                <input type="text" id="category" placeholder="Enter category (new or existing)" required>
+                
+                <label for="file">Image File Name:</label>
+                <input type="text" id="file" placeholder="Enter file name (e.g., image1.jpg)" required>
+                
+                <label for="name">Image Name:</label>
+                <input type="text" id="name" placeholder="Enter image description" required>
+                
+                <button type="submit">Add Data</button>
+            </form>
+        </div>
+        
+        <div id="form3" class="form-container">
+            <form>
+                <h2>Edit Product</h2>
+                <label for="category">Category:</label>
+                <input type="text" id="category" placeholder="Enter category (new or existing)" required>
+                
+                <label for="file">Image File Name:</label>
+                <input type="text" id="file" placeholder="Enter file name (e.g., image1.jpg)" required>
+                
+                <label for="name">Image Name:</label>
+                <input type="text" id="name" placeholder="Enter image description" required>
+            <br />
+                <button type="submit">Add Data</button>
+            </form>
+        </div>
+        
+        <div class="clearfix"></div>
+        
+    </section>
+</body>
+</html>
