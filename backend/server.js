@@ -65,6 +65,23 @@ app.post("/add-data", (req, res) => {
     });
 });
 
+// Save updated data to the JSON file
+app.post("/save-data", (req, res) => {
+    const updatedData = req.body;
+
+    fs.writeFile(
+        path.join(__dirname, "../src/data.json"),
+        JSON.stringify(updatedData, null, 2),
+        (err) => {
+            if (err) {
+                console.error("Error writing data.json:", err);
+                return res.status(500).json({ message: "Failed to save data" });
+            }
+            res.json({ message: "Data saved successfully" });
+        }
+    );
+});
+
 // Edit data in data.json
 app.put("/edit-data", (req, res) => {
     const { category, index, newFile, newName } = req.body;

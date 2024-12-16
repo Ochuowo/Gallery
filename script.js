@@ -6,11 +6,14 @@ const switchBoard = document.getElementById("switchBoard");
 
 const allProducts = document.getElementById("show-data-button");
 const addProduct = document.getElementById("add-data-button");
-const moveProduct = document.getElementById("button3");
 
 const allForm = document.getElementById("data-table");
 const addForm = document.getElementById("add-data-form");
-const moveForm = document.getElementById("form3");
+
+// Add Save button
+const saveButton = document.getElementById("save-button");
+const location = document.getElementById("location");
+const count = document.getElementById("count");
 
 hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("active");
@@ -25,26 +28,20 @@ homeButton.addEventListener("click", function (e) {
     e.preventDefault(); // Prevent the default link behavior
     searchBar.style.display = "none";
     switchBoard.style.display = "block";
-    location.reload();  // Reload the page
+    window.location.reload();  // Reload the page
 });
 
 allProducts.addEventListener("click", () => {
     allForm.style.display = "block";
     addForm.style.display = "none";
-    moveForm.style.display = "none";
 })
 
 addProduct.addEventListener("click", () => {
     allForm.style.display = "none";
     addForm.style.display = "block";
-    moveForm.style.display = "none";
 })
 
-moveProduct.addEventListener("click", () => {
-    allForm.style.display = "none";
-    addForm.style.display = "none";
-    moveForm.style.display = "block";
-})
+saveButton.addEventListener("click", () => saveChanges(location, count)); // Call saveChanges function
 
 const navLinks = document.querySelectorAll(".nav-link");
 const gallery = document.getElementById("gallery");
@@ -60,7 +57,6 @@ navLinks.forEach((link, index) => {
         switchBoard.style.display = "none";
         allForm.style.display = "none";
         addForm.style.display = "none";
-        moveForm.style.display = "none";
         const title = `${categories[index]}`;
         updateGalleryTitle(title);
         loadImages(categories[index]);
@@ -73,7 +69,7 @@ function updateGalleryTitle(title) {
 
 // Function to create photo cards dynamically
 function createPhotoCard(category, imageData, imageIndex) {
-    const { file, name } = imageData;
+    const { file, name, partNo, location, count } = imageData;
 
     const photoCard = document.createElement("div");
     photoCard.classList.add("photo-card");
@@ -90,8 +86,10 @@ function createPhotoCard(category, imageData, imageIndex) {
     photoInfo.innerHTML = `
         <span><strong>category:</strong> ${category}</span>
         <span><strong>File:</strong> ${file}</span>
-        <span><strong>Index:</strong> ${imageIndex}</span>
         <span><strong>Name:</strong> ${name}</span>
+        <span><strong>Part No.:</strong> ${partNo}</span>
+        <span><strong>Location:</strong> ${location}</span>
+        <span><strong>Count:</strong> ${count}</span>
     `;
 
     photoCard.appendChild(photoInfo);
@@ -186,6 +184,7 @@ document.getElementById("add-data-form").addEventListener("submit", async functi
 });
 
 document.getElementById("show-data-button").addEventListener("click", function () {
+    
     fetch("src/data.json")
         .then((response) => {
             if (!response.ok) {
@@ -262,9 +261,15 @@ function renderCategoryContent(items, container, pageIndex) {
         row.classList.add("item-row");
 
         row.innerHTML = `
-            <div class="item-file">${item.file}</div>
-            <div class="item-name">${item.name}</div>
-            <div class="item-location">
+            <div class="item-file">
+              <label>File:</label>
+                ${item.file}
+            </div>
+            <div class="item-name">
+              <label>Name:</label>
+               ${item.name}
+            </div>
+            <div id="location" class="item-location">
                 <label for="location-${startIndex + index}">Location:</label>
                 <select id="location-${startIndex + index}" class="location-dropdown">
                     <option value="shelf-AB" ${item.location === "shelf-AB" ? "selected" : ""}>Shelf AB</option>
@@ -272,7 +277,7 @@ function renderCategoryContent(items, container, pageIndex) {
                     <option value="shelf-BG" ${item.location === "shelf-BG" ? "selected" : ""}>Shelf BG</option>
                 </select>
             </div>
-            <div class="item-count">
+            <div id="count" class="item-count">
                 <label>Count:</label>
                 <button class="decrement-button" data-index="${startIndex + index}">-</button>
                 <span class="count-display">${item.count || 0}</span>
@@ -350,6 +355,36 @@ document.getElementById("data-table").addEventListener("click", (event) => {
         handleDelete(event, activeCategory);
     }
 });
+
+function saveChanges(location, count) {
+
+    if(!location || !count) {
+        alert('All fields required');
+        return;
+    }
+
+    fetch("http://localhost:3000/save-data", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(location, count),
+    })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Failed to save data");
+            }
+            return response.json();
+        })
+        .then((result) => {
+            alert("Changes saved successfully!");
+        })
+        .catch((error) => {
+            console.error("Error saving data:", error);
+            alert("Failed to save changes.");
+        });
+}
+
 
 // Fetch and display data in a table
 // document.getElementById("show-data-button").addEventListener("click", function () {

@@ -2,63 +2,102 @@
   "Oils": [
     {
       "file": "engine.jpg",
-      "name": "Sunset Over the Valley"
+      "name": "Sunset Over the Valley",
+      "partNo": "",
+      "location" : "A13",
+      "count" : "55"
     },
     {
       "file": "image2.jpg",
-      "name": "Majestic Mountains"
+      "name": "Majestic Mountains",
+      "partNo": "",
+      "location" : "",
+      "count" : ""
     },
     {
       "file": "image3.jpg",
-      "name": "Serene Lake"
+      "name": "Serene Lake",
+      "partNo": "",
+      "location" : "",
+      "count" : ""
     },
     {
       "file": "image4.jpg",
-      "name": "Street Kings"
+      "name": "Street Kings",
+      "partNo": "",
+      "location" : "",
+      "count" : ""
     },
     {
       "file": "image5.jpg",
-      "name": "Hills Side"
+      "name": "Hills Side",
+      "partNo": "",
+      "location" : "",
+      "count" : ""
     }
   ],
   "Filters": [
     {
       "file": "image1.jpg",
-      "name": "City Lights"
+      "name": "City Lights",
+      "partNo": "",
+      "location" : "",
+      "count" : ""
     },
     {
       "file": "image2.jpg",
-      "name": "Rainy Evening"
+      "name": "Rainy Evening",
+      "partNo": "",
+      "location" : "",
+      "count" : ""
     }
   ],
   "Belts": [
     {
       "file": "image1.jpg",
-      "name": "Golden Beach"
+      "name": "Golden Beach",
+      "partNo": "",
+      "location" : "",
+      "count" : ""
     },
     {
       "file": "image2.jpg",
-      "name": "Waves Crashing"
+      "name": "Waves Crashing",
+      "partNo": "",
+      "location" : "",
+      "count" : ""
     },
     {
       "file": "image3.jpg",
-      "name": "Calm Ocean"
+      "name": "Calm Ocean",
+      "partNo": "",
+      "location" : "",
+      "count" : ""
     }
   ],
   "engines": [
     {
       "file": "toyota town ace.jpg",
-      "name": "3C 2000 CC "
+      "name": "3C 2000 CC ",
+      "partNo": "",
+      "location" : "",
+      "count" : ""
     }
   ],
   "Bushes": [
     {
       "file": "Suspension bushing",
-      "name": "image 12.jpg"
+      "name": "image 12.jpg",
+      "partNo": "",
+      "location" : "",
+      "count" : ""
     },
     {
       "file": "image19.jpg",
-      "name": "double shocks bushing"
+      "name": "double shocks bushing",
+      "partNo": "",
+      "location" : "",
+      "count" : ""
     }
   ]
 }
