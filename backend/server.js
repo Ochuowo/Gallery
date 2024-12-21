@@ -15,22 +15,23 @@ app.use(morgan('dev'));
 
 // Cors for cross origin allowance
 const cors = require('cors');//add
+const { error } = require("console");
 app.use(cors());//add
 
 // Initialize the project folder
 app.use(express.static("Gallery"));
 
+  // Update the path to `data.json`
+  const dataFilePath = path.join(__dirname, "../src/data.json");
+
 // Endpoint to add data
 app.post("/add-data", (req, res) => {
-    const { category, file, name } = req.body;
+    const { category, file, name, description, partNumber, price, location, count, expiryDate } = req.body;
     console.log(req.body);
 
-    if (!category || !file || !name) {
+    if (!category || !file || !name || !description || !partNumber || !price ||!location || !count ||!expiryDate) {
         return res.status(400).json({ error: "All fields are required." });
     }
-
-    // Update the path to `data.json`
-    const dataFilePath = path.join(__dirname, "../src/data.json");
 
     // Read the existing data
     fs.readFile(dataFilePath, "utf8", (err, data) => {
@@ -84,9 +85,7 @@ app.post("/save-data", (req, res) => {
 
 // Edit data in data.json
 app.put("/edit-data", (req, res) => {
-    const { category, index, newFile, newName } = req.body;
-
-    const dataFilePath = path.join(__dirname, "../src/data.json");
+    const { category, index, newFile, newName, newPartNo } = req.body;
 
     fs.readFile(dataFilePath, "utf8", (err, data) => {
         if (err) return res.status(500).json({ error: "Failed to read data file." });
@@ -96,7 +95,7 @@ app.put("/edit-data", (req, res) => {
             return res.status(404).json({ error: "Data not found." });
         }
 
-        jsonData[category][index] = { file: newFile, name: newName };
+        jsonData[category][index] = { file: newFile, name: newName, partNumber: newPartNo };
 
         fs.writeFile(dataFilePath, JSON.stringify(jsonData, null, 2), (err) => {
             if (err) return res.status(500).json({ error: "Failed to write data file." });
@@ -108,8 +107,6 @@ app.put("/edit-data", (req, res) => {
 // Delete data from data.json
 app.delete("/delete-data", (req, res) => {
     const { category, index } = req.body;
-
-    const dataFilePath = path.join(__dirname, "../src/data.json");
 
     fs.readFile(dataFilePath, "utf8", (err, data) => {
         if (err) return res.status(500).json({ error: "Failed to read data file." });

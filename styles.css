@@ -44,7 +44,7 @@ body {
 /* Sidebar Navigation */
 .sidebar {
     width: 250px;
-    padding-top: 35px;
+    padding-top: 55px;
     background-color: #a5a5a5;
     color: #fff;
     height: 100vh;
@@ -57,6 +57,58 @@ body {
 
 .sidebar.active {
     left: 0;
+}
+
+.sidebar .menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar .menu .nav-item {
+    margin: 10px 0;
+}
+
+.sidebar .menu .nav-link {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .menu .nav-link:hover {
+    background-color: #575757;
+}
+
+#reports-container {
+    margin-left: 10%;
+    padding: 20px;
+}
+
+.report-form {
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    width: 50%;
+}
+
+.report-form h2 {
+    color: #333;
+}
+
+.report-form form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.report-form form input,
+.report-form form select,
+.report-form form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 .menu {
@@ -109,10 +161,10 @@ body {
 }
 
 .photo-card {
-    width: 200px;              /* Fixed width for uniformity */
-    height: 300px;             /* Fixed height for uniformity */
-    display: flex;
-    flex-direction: column;    /* Stacks the image and info vertically */
+    width: 250px;          /* Fixed width for uniformity */
+    height: 350px;          /* Fixed height for uniformity */
+    display: inline-block;
+    flex-direction: column;  /* Stacks the image and info vertically */
     align-items: center;
     justify-content: space-between;
     border: 1px solid #ddd;    /* Optional: Border around each card */
@@ -144,11 +196,11 @@ body {
 }
 
 .photo-info {
-    padding: 10px;
-    font-size: 14px;
+    font-size: 13px;
     color: #333;
-    text-align: center;
+    text-align: left;
     width: 100%;
+    padding: 5px;
 }
 
 .photo-info span {
@@ -177,7 +229,6 @@ body {
     flex-direction: column;
     align-items: center;
     overflow: hidden; /* Ensures a clean layout */
-    background-color: #fff;
     cursor: pointer;
 }
 
@@ -220,12 +271,6 @@ body {
     cursor: pointer;
     border-radius: 5px;
     padding: 5px;
-} 
-
-.form-container { 
-    display: none;
-    float: left;
-    width: 150px;
 }
 
 .clearfix::after { 
@@ -264,14 +309,14 @@ body {
     display: none;
 }
 
-.item-row {
+/* .item-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 4px;
-}
+} */
 
 .item-actions button {
     margin-left: 5px;
@@ -303,34 +348,58 @@ body {
     display: inline-block;
     align-items: start;
     justify-content: space-between;
-    padding: 30px;
-    margin: 10px;
-    border-bottom: 1px solid #ddd;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.item-name input,
+.item-partNumber input,
+.item-description input,
+.item-price input,
+.item-location input,
+.item-expiryDate input {
+    border: none;
 }
 
 .item-file,
 .item-name,
+.item-partNumber,
+.item-price,
 .item-location,
-.item-count,
+.item-expiryDate,
 .item-actions {
-    margin-top: 5px;
-    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    margin: 3px;
+}
+
+.item-count {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-content: start;
+    margin: 5px 0;
 }
 
 .item-location select,
 .item-count button {
-    margin-left: 5px;
+    margin-left: 7px;
 }
 
 .count-display {
-    display: inline-block;
+    display: flex;
     width: 30px;
     text-align: center;
     font-weight: bold;
 }
 
-.edit-button, .delete-button {
-    margin: 5px;
+.edit-button, .delete-button, .reset-button {
+    margin: 10px;
+    text-decoration: underline;
+    color: blue;
 }
 
 .pagination {
@@ -347,5 +416,28 @@ body {
 .pagination button[data-active="true"] {
     font-weight: bold;
     text-decoration: underline;
+}
+
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-button:hover {
+    background-color: darkred;
 }
 

@@ -1,103 +1,111 @@
 {
   "Oils": [
     {
-      "file": "engine.jpg",
-      "name": "Sunset Over the Valley",
-      "partNo": "",
-      "location" : "A13",
-      "count" : "55"
-    },
-    {
-      "file": "image2.jpg",
-      "name": "Majestic Mountains",
-      "partNo": "",
-      "location" : "",
-      "count" : ""
-    },
-    {
-      "file": "image3.jpg",
+      "file": "./src/public/images/Oils/image3.jpg",
       "name": "Serene Lake",
-      "partNo": "",
-      "location" : "",
-      "count" : ""
+      "partNumber": "555888111",
+      "description": "car battery",
+      "price": "1400",
+      "location": "shelf-BG",
+      "count": 3,
+      "expiryDate": "2025-01-29"
     },
     {
-      "file": "image4.jpg",
+      "file": "./src/public/images/Oils/engine.jpg",
       "name": "Street Kings",
-      "partNo": "",
-      "location" : "",
-      "count" : ""
+      "partNumber": "77711144",
+      "description": "",
+      "price": "0",
+      "location": "BG",
+      "count": 0,
+      "expiryDate": "2024-12-26"
     },
     {
-      "file": "image5.jpg",
-      "name": "Hills Side",
-      "partNo": "",
-      "location" : "",
-      "count" : ""
+      "file": "./src/public/images/Oils/image5.jpg",
+      "name": "Hills Away",
+      "partNumber": "",
+      "description": "",
+      "price": 0,
+      "location": "BG",
+      "count": 4,
+      "expiryDate": "2025-02-13"
     }
   ],
   "Filters": [
     {
-      "file": "image1.jpg",
+      "file": "./src/public/images/Filters/image1.jpg",
       "name": "City Lights",
-      "partNo": "",
-      "location" : "",
-      "count" : ""
+      "partNumber": "",
+      "description": "",
+      "price": 0,
+      "location": "",
+      "count": 0,
+      "expiryDate": "2025-01-01"
     },
     {
-      "file": "image2.jpg",
+      "file": "./src/public/images/Filters/image2.jpg",
       "name": "Rainy Evening",
-      "partNo": "",
-      "location" : "",
-      "count" : ""
+      "partNumber": "",
+      "description": "",
+      "price": 0,
+      "location": "",
+      "count": 0,
+      "expiryDate": "2025-01-01"
     }
   ],
   "Belts": [
     {
-      "file": "image1.jpg",
+      "file": "./src/public/images/Belts/image1.jpg",
       "name": "Golden Beach",
-      "partNo": "",
-      "location" : "",
-      "count" : ""
+      "partNumber": "",
+      "description": "",
+      "price": 0,
+      "location": "",
+      "count": 3,
+      "expiryDate": "2025-01-01"
     },
     {
-      "file": "image2.jpg",
+      "file": "./src/public/images/Belts/image2.jpg",
       "name": "Waves Crashing",
-      "partNo": "",
-      "location" : "",
-      "count" : ""
+      "partNumber": "",
+      "description": "",
+      "price": 0,
+      "location": "DE",
+      "count": 12,
+      "expiryDate": "2025-01-01"
     },
     {
-      "file": "image3.jpg",
+      "file": "./src/public/images/Belts/image3.jpg",
       "name": "Calm Ocean",
-      "partNo": "",
-      "location" : "",
-      "count" : ""
+      "partNumber": "",
+      "description": "",
+      "price": 0,
+      "location": "",
+      "count": 7,
+      "expiryDate": "2025-01-01"
     }
   ],
-  "engines": [
-    {
-      "file": "toyota town ace.jpg",
-      "name": "3C 2000 CC ",
-      "partNo": "",
-      "location" : "",
-      "count" : ""
-    }
-  ],
+  "Engines": [],
   "Bushes": [
     {
-      "file": "Suspension bushing",
-      "name": "image 12.jpg",
-      "partNo": "",
-      "location" : "",
-      "count" : ""
+      "file": "./src/public/images/Bulbs/image1.jpg",
+      "name": "Suspension bushing",
+      "partNumber": "",
+      "description": "",
+      "price": "750",
+      "location": "",
+      "count": 0,
+      "expiryDate": "2025-01-01"
     },
     {
-      "file": "image19.jpg",
-      "name": "double shocks bushing",
-      "partNo": "",
-      "location" : "",
-      "count" : ""
+      "file": "./src/public/images/Bulbs/image2.jpg",
+      "name": "double bushing",
+      "partNumber": "",
+      "description": "",
+      "price": "900",
+      "location": "",
+      "count": 3,
+      "expiryDate": "2025-01-01"
     }
   ]
 }
